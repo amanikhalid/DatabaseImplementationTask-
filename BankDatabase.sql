@@ -73,5 +73,56 @@ Primary key (Transaction_ID, TType));
 alter table Loan 
 add Customer_ID int, foreign key (Customer_ID) references Customers(Customer_ID)
 
+-----------------------------
+
+INSERT INTO Branch (Address) VALUES
+('Muscat, Ruwi'),
+('Salalah, City Center'),
+('Sohar, Corniche Road');
+
+INSERT INTO BranchPhone (Branch_ID, Phone) VALUES
+(1, '968-24567890'),
+(2, '968-23211234'),
+(3, '968-26889900');
+
+
+INSERT INTO Employee (Name, Position, Branch_ID) VALUES
+('Aisha Al Riyami', 'Loan Officer', 1),
+('Fahad Al Amri', 'Teller', 2),
+('Noura Al Hinai', 'Branch Manager', 3);
+
+INSERT INTO Loan (Amount, LType, Issue_Date, Employee_ID) VALUES
+(15000.00, 'Personal', '2024-12-10', 1),
+(32000.00, 'Car Loan', '2025-01-20', 2),
+(50000.00, 'Home Loan', '2025-03-05', 3);
+
+INSERT INTO Customers (Name, Date_Of_Birth, Issue_Date, Action_Type, Loan_ID, Employee_ID) VALUES
+('Khalid Al Balushi', '1990-04-15', '2025-01-10', 'Opened Account', 1, 1),
+('Laila Al Farsi', '1987-08-09', '2025-01-25', 'Loan Approval', 2, 2),
+('Salem Al Zadjali', '1995-02-20', '2025-03-10', 'Opened Account', 3, 3);
+
+INSERT INTO CustomersPhone (Customer_ID, Phone) VALUES
+(1, '968-91111222'),
+(2, '968-92222333'),
+(3, '968-93333444');
+
+INSERT INTO Accounts (Balance, AType, Date_Of_Creation, Customer_ID) VALUES
+(3000.00, 'Savings', '2025-01-11', 1),
+(7000.00, 'Checking', '2025-01-26', 2),
+(1500.00, 'Savings', '2025-03-11', 3);
+
+INSERT INTO Transactions (TDate, Amount, Account_Number) VALUES
+('2025-04-01', 500.00, 1),
+('2025-04-03', 700.00, 2),
+('2025-04-05', 200.00, 3);
+
+INSERT INTO TransactionType (Transaction_ID, TType) VALUES
+(1, 'Deposit'),
+(2, 'Withdrawal'),
+(3, 'Deposit');
+
+UPDATE Loan SET Customer_ID = 1 WHERE Loan_ID = 1;
+UPDATE Loan SET Customer_ID = 2 WHERE Loan_ID = 2;
+UPDATE Loan SET Customer_ID = 3 WHERE Loan_ID = 3;
 
 
